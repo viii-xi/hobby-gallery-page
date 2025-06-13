@@ -1,0 +1,323 @@
+/* Reset & Setup */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  color: #4f4f4f;
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+  position: relative;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #ffe9f0, #fff2f5);
+}
+
+/* Animated Background Gradient Moving */
+.bg-stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 20% 20%, #f8cdd5, transparent 40%),
+              radial-gradient(circle at 80% 80%, #f4aec6, transparent 40%),
+              radial-gradient(circle at 50% 50%, #f6c2d8, transparent 50%);
+  animation: bgMove 60s linear infinite;
+  z-index: -2;
+}
+
+@keyframes bgMove {
+  0% {
+    transform: translate(-25%, -25%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Header */
+.intro {
+  text-align: center;
+  margin-bottom: 40px;
+  animation: fadeIn 1.2s ease both;
+}
+
+.intro h1 {
+  font-family: 'Comfortaa', cursive;
+  font-size: 2.8rem;
+  color: #e597a1;
+  animation: floaty 3s ease-in-out infinite;
+  text-shadow: 1px 1px 4px #f9c7d1aa;
+}
+
+.intro p {
+  font-size: 1.2rem;
+  color: #c68b94;
+  opacity: 0;
+  animation: fadeIn 1.4s ease 0.6s both;
+}
+
+/* Gallery grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  animation: fadeIn 1.6s ease 0.4s both;
+}
+
+/* Card style */
+.card {
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 6px 6px 20px rgba(245, 192, 200, 0.25);
+  transition: transform 0.4s, box-shadow 0.4s;
+  animation: fadeInUp 1s ease both;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.card:nth-child(1) {
+  animation-delay: 0.5s;
+}
+.card:nth-child(2) {
+  animation-delay: 0.6s;
+}
+.card:nth-child(3) {
+  animation-delay: 0.7s;
+}
+.card:nth-child(4) {
+  animation-delay: 0.8s;
+}
+.card:nth-child(5) {
+  animation-delay: 0.9s;
+}
+.card:nth-child(6) {
+  animation-delay: 1s;
+}
+.card:nth-child(7) {
+  animation-delay: 1.1s;
+}
+.card:nth-child(8) {
+  animation-delay: 1.2s;
+}
+.card:nth-child(9) {
+  animation-delay: 1.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 10px 10px 30px rgba(245, 192, 200, 0.45);
+}
+
+/* Emoji Badge on card */
+.card::before {
+  content: attr(data-icon);
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #fff;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  animation: badgePop 0.6s ease both;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Image inside card */
+.card img {
+  width: 100%;
+  height: 180px;
+  border-radius: 16px;
+  object-fit: cover;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: filter 0.35s ease, transform 0.35s ease;
+}
+
+.card:hover img {
+  filter: brightness(1.05);
+  transform: scale(1.03);
+}
+
+/* Titles */
+.card h2 {
+  font-family: 'Comfortaa', cursive;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #e78b96;
+  animation: colorShift 4s ease-in-out infinite both;
+  text-shadow: 0 0 3px #f5c3caaa;
+}
+
+/* Description text */
+.card p {
+  font-size: 1rem;
+  color: #866c6c;
+  line-height: 1.3;
+}
+
+/* Floating sparkle text */
+.sparkles::after {
+  content: "✨  ❀  ♡  ☁️  ✿  🌸  🐰  ";
+  position: fixed;
+  top: 50%;
+  left: 0;
+  width: 200%;
+  opacity: 0.12;
+  font-size: 2.2rem;
+  animation: sparkleScroll 25s linear infinite;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  z-index: -1;
+}
+
+/* Floating doodle decorations */
+.decor {
+  position: fixed;
+  font-size: 2rem;
+  opacity: 0.3;
+  user-select: none;
+  animation-timing-function: ease-in-out;
+}
+
+.decor-top-left {
+  top: 15px;
+  left: 15px;
+  animation: floaty2 5s infinite;
+}
+
+.decor-top-right {
+  top: 15px;
+  right: 15px;
+  animation: floaty2 6s infinite;
+}
+
+.decor-bottom-left {
+  bottom: 15px;
+  left: 25px;
+  animation: floaty2 7s infinite;
+}
+
+.decor-bottom-right {
+  bottom: 15px;
+  right: 25px;
+  animation: floaty2 8s infinite;
+}
+
+/* Animations */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes badgePop {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes colorShift {
+  0%,
+  100% {
+    color: #e78b96;
+    text-shadow: 0 0 3px #f5c3caaa;
+  }
+  50% {
+    color: #f4a1b0;
+    text-shadow: 0 0 10px #f7bac1cc;
+  }
+}
+
+@keyframes sparkleScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes floaty2 {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 500px) {
+  .intro h1 {
+    font-size: 2rem;
+  }
+
+  .card img {
+    height: 150px;
+  }
+}
+
+.credits {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aa7e8a;
+  margin-top: 60px;
+  padding: 20px 10px;
+  opacity: 0.7;
+  font-family: 'Quicksand', sans-serif;
+  animation: fadeIn 2s ease 1.5s both;
+}
+
+.credits .made-by {
+  font-size: 0.8rem;
+  color: #c498a2;
+  margin-top: 10px;
+  letter-spacing: 0.5px;
+  font-style: italic;
+}
