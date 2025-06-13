@@ -70,6 +70,6 @@ Project-2-My-Hobby-Gallery/
 ## 💌 Made With Love
 
 > _“Made with ♡ by Akshita Kushwaha.”_
-
-
+Email: k.akshita2005@gmail.com
+GitHub: viii-xi
 
